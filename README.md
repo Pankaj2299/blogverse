@@ -184,8 +184,7 @@ npm run build
 * Mobile Avatar Menu
 * Responsive Layout
 * Optimized User Experience
-
-## 👨‍💻 Author
+```
 
 ## 👨‍💻 Author
 
