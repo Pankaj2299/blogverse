@@ -1,0 +1,190 @@
+# BlogVerse 🚀
+
+A modern full-stack blogging platform featuring secure authentication, email verification, password recovery, rich text editing, image uploads, and post management built with React, Redux Toolkit, React Hook Form, React Router DOM, Appwrite, TinyMCE, and Tailwind CSS.
+
+## ✨ Key Features
+
+### Authentication
+
+* User Signup
+* User Login
+* Logout
+* Email Verification
+* Resend Verification Email
+* Forgot Password
+* Reset Password
+* Password Visibility Toggle
+
+### Blog Management
+
+* Create Post
+* Edit Post
+* Delete Post
+* View Single Post
+* View All Posts
+* Featured Image Upload
+* Automatic Image Deletion
+
+### User Experience
+
+* Responsive Design
+* Mobile-Friendly Navigation
+* Avatar Dropdown Menu
+* Protected Routes
+* Loading States
+* Form Validation
+* Author Information
+* Post Creation Date Display
+
+### Security
+
+* Route Protection using AuthLayout
+* Email Verification Required Before Login
+* Password Recovery Flow
+* Session Management with Appwrite
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React
+* React Router DOM
+* Redux Toolkit
+* React Hook Form
+* Tailwind CSS
+* TinyMCE Editor
+
+### Backend & Services
+
+* Appwrite Authentication
+* Appwrite Database
+* Appwrite Storage
+
+---
+
+## 📂 Project Structure
+
+```bash
+src
+├── appwrite
+│   ├── auth.js
+│   ├── bucketService.js
+│   └── dbService.js
+│
+├── components
+│   ├── AuthLayout
+│   ├── Button
+│   ├── Container
+│   ├── Footer
+│   ├── Header
+│   ├── Input
+│   ├── Login
+│   ├── Logo
+│   ├── LogoutBtn
+│   ├── PostCard
+│   ├── PostForm
+│   ├── RTE (TinyMCE Editor)
+│   ├── Select
+│   ├── SignUp
+│   └── index.js
+│
+├── conf
+│   └── conf.js
+│
+├── features
+│   └── authSlice.js
+│
+├── pages
+│   ├── AddPost.jsx
+│   ├── AllPost.jsx
+│   ├── CheckEmail.jsx
+│   ├── EditPost.jsx
+│   ├── ForgotPassword.jsx
+│   ├── Home.jsx
+│   ├── Login.jsx
+│   ├── Post.jsx
+│   ├── ResetPassword.jsx
+│   ├── SignUp.jsx
+│   ├── VerifyEmail.jsx
+│   ├── VerifyPending.jsx
+│   ├── VerifySuccess.jsx
+│   └── index.js
+│   
+│
+├── store
+│   └── store.js
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory and add:
+
+```env
+VITE_APPWRITE_URL=
+VITE_APPWRITE_PROJECT_ID=
+VITE_APPWRITE_DATABASE_ID=
+VITE_APPWRITE_TABLE_ID=
+VITE_APPWRITE_BUCKET_ID=
+VITE_TINYMCE_API_KEY=
+```
+
+## 🚀 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/blogverse.git
+```
+
+Navigate to project folder:
+
+```bash
+cd blogverse
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## 🔐 Authentication Flow
+
+1. User creates an account
+2. Verification email is sent
+3. User verifies email
+4. User can log in
+5. Forgot password and reset password supported
+
+## 🌐 Live Demo
+
+   Live Application: https://your-app.vercel.app
+
+## 📱 Responsive Design
+
+* Desktop Navigation
+* Mobile Avatar Menu
+* Responsive Layout
+* Optimized User Experience
+
+## 👨‍💻 Author
+
+Developed with React, Appwrite, Redux Toolkit, and Tailwind CSS.
