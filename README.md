@@ -184,7 +184,8 @@ npm run build
 * Mobile Avatar Menu
 * Responsive Layout
 * Optimized User Experience
-```
+
+---
 
 ## 👨‍💻 Author
 
@@ -196,4 +197,5 @@ npm run build
 <br>
 🔗 LinkedIn: https://www.linkedin.com/in/pankaj-kumar-4b3276266
 
+---
 
