@@ -187,4 +187,14 @@ npm run build
 
 ## 👨‍💻 Author
 
-Developed with React, Appwrite, Redux Toolkit, and Tailwind CSS.
+## 👨‍💻 Author
+
+**Pankaj Kumar**
+
+📧 Email: Pankajkumar199922@gmail.com
+<br>
+🔗 GitHub: https://github.com/Pankaj2299
+<br>
+🔗 LinkedIn: https://www.linkedin.com/in/pankaj-kumar-4b3276266
+
+
