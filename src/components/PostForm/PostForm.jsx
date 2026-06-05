@@ -8,8 +8,10 @@ import dbservices from '../../appwrite/dbService'
 
 
 function PostForm({ post }) {
+
     const navigate = useNavigate()
-    const { register, handleSubmit, watch, setValue, getValues, control, formState: { isSubmitting } } = useForm({
+
+    const { register, handleSubmit, watch, setValue, getValues, control,reset, formState: { isSubmitting } } = useForm({
         defaultValues: {
             title: post?.title || "",
             slug: post?.slug || "",
@@ -78,6 +80,19 @@ function PostForm({ post }) {
         return ""
 
     }, [])
+
+
+    useEffect(() => {
+        if(post){
+        
+            reset({
+                title :post.title,
+                slug: post.slug || slugTransform(post.title),
+                content:post.content,
+                status:post.status
+            })
+        }
+    },[post,reset])
 
 
     useEffect(() => {

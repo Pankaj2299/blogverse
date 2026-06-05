@@ -22,14 +22,14 @@ export class dbServices {
                 databaseId: conf.appwriteDatabaseId,
                 tableId: conf.appwriteTableId,
                 rowId: slug,
-                data: { title, content, featuredImage, status, userId, authorName, }
+                data: { title, content, featuredImage, status, userId, authorName, slug}
             })
 
 
         }
 
         catch (error) {
-            console.log("Appwrite services :: createPost :: error", error)
+            
             return false
         }
 
@@ -42,15 +42,17 @@ export class dbServices {
                 conf.appwriteDatabaseId,
                 conf.appwriteTableId,
                 slug,
-                { title, content, featuredImage, status }
+                { title, content, featuredImage, status,slug }
             )
 
 
 
         } catch (error) {
-            console.log("Appwrite services :: updatePost :: error", error)
 
+            
             return false
+            
+
         }
     }
 
