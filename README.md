@@ -139,7 +139,7 @@ VITE_TINYMCE_API_KEY=
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/blogverse.git
+git clone https://github.com/Pankaj2299/blogverse.git
 ```
 
 Navigate to project folder:
