@@ -12,5 +12,6 @@ import Login from "./Login/Login";
 import SignUp from "./SignUp/SignUp";
 import AuthLayout from './AuthLayout/AuthLayout'
 import PostForm from "./PostForm/PostForm";
+import ScrollToTop from "./ScrollToTop/ScrollToTop";
 
-export {Header,Footer,Container,Logo,LogoutBtn,Button,Input,Select,RTE,PostCard,Login,SignUp,AuthLayout,PostForm}
+export {Header,Footer,Container,Logo,LogoutBtn,Button,Input,Select,RTE,PostCard,Login,SignUp,AuthLayout,PostForm,ScrollToTop}

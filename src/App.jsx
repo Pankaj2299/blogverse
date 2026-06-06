@@ -2,7 +2,7 @@
 import conf from './conf/conf'
 import authService from './appwrite/auth'
 import './App.css'
-import { Header, Footer } from "./components/index"
+import { Header, Footer,ScrollToTop } from "./components/index"
 import { useState, useEffect } from 'react'
 import { login, logout } from "./features/authSlice"
 import { useDispatch, useSelector } from "react-redux"
@@ -76,7 +76,7 @@ function App() {
     (
 
       <div className='min-h-screen flex flex-col bg-slate-100'>
-
+            <ScrollToTop/>
         <div className='flex flex-col flex-grow'>
           <Header />
           <main className='flex-grow'>
