@@ -84,6 +84,7 @@ src
 │   ├── PostCard
 │   ├── PostForm
 │   ├── RTE (TinyMCE Editor)
+│   ├── ScrollToTop
 │   ├── Select
 │   ├── SignUp
 │   └── index.js
