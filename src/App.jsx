@@ -76,7 +76,9 @@ function App() {
     (
 
       <div className='min-h-screen flex flex-col bg-slate-100'>
+
             <ScrollToTop/>
+            
         <div className='flex flex-col flex-grow'>
           <Header />
           <main className='flex-grow'>
