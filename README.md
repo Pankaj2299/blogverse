@@ -176,7 +176,7 @@ npm run build
 
 ## 🌐 Live Demo
 
-   Live Application: https://your-app.vercel.app
+   Live Application: https://blogverse-rho.vercel.app/
 
 ## 📱 Responsive Design
 
