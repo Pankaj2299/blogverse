@@ -31,7 +31,9 @@ function VerifyEmail() {
 
       if (result) {
 
-       
+        try {
+          await authService.logout();
+        } catch {}
 
         navigate("/verify-success", { replace: true });
         return;
