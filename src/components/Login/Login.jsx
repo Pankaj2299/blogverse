@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import authService from '../../appwrite/auth'
 import { useForm } from 'react-hook-form'
 
-
+console.log("Login Build  Test 123")
 
 function Login() {
   const navigate = useNavigate()
@@ -22,7 +22,7 @@ function Login() {
       if (session) {
 
         const userData = await authService.getCurrentUser()
-
+            
 
         if (!userData.emailVerification) {
           await authService.logout()
