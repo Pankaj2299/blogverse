@@ -10,48 +10,46 @@ function VerifyEmail() {
 
   const [status, setStatus] = useState("loading");
 
- useEffect(() => {
+  useEffect(() => {
 
-  const verify = async () => {
-
-    try {
+    const verify = async () => {
 
       const userId = searchParams.get("userId");
       const secret = searchParams.get("secret");
 
       if (!userId || !secret) {
+
         setStatus("invalid");
         return;
       }
 
       const result = await authService.verifyEmail({
         userId,
-        secret,
+        secret
       });
+
+
 
       if (result) {
 
-        try {
-          await authService.logout();
-        } catch {}
+        await authService.logout()
 
-        navigate("/verify-success", { replace: true });
-        return;
+        navigate("/verify-success", { replace: true })
+
+        return
+
       }
 
-      setStatus("error");
 
-    } catch (error) {
+      else {
+        setStatus("error");
+      }
 
-      setStatus("error");
-    }
-  };
+    };
 
-  verify();
+    verify();
 
-}, [navigate, searchParams]);
-
-    
+  }, []);
 
 
 
