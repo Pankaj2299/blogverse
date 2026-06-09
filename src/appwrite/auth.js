@@ -109,7 +109,7 @@ export class AuthService {
 
         try {
 
-            return await this.Account.deleteSession("current")
+            return await this.Account.deleteSessions()
 
         } catch (error) {
 
