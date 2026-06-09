@@ -38,14 +38,21 @@ export class AuthService {
     async verifyEmail({ userId, secret }) {
         try {
 
-            return await this.Account.updateVerification({
+              console.log("VERIFYING", userId, secret);
+
+            const result =  await this.Account.updateVerification({
                 userId,
                 secret
             })
 
+              console.log("VERIFY SUCCESS", result);
+
+              return result
+
         } catch (error) {
 
-
+            console.log("VERIFY ERROR", error);
+            
             return false
 
 
