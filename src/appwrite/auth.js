@@ -18,9 +18,13 @@ export class AuthService {
     async sendVerification() {
         try {
 
-            return await this.Account.createVerification({
+            const res = await this.Account.createVerification({
                 url: `${window.location.origin}/verify-email`
             })
+            
+            console.log("verification response",res)
+            return res
+
         } catch (error) {
 
 
