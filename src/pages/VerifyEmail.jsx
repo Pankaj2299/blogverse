@@ -40,7 +40,7 @@ console.log("VERIFY PAGE MOUNTED");
 
       if (result) {
 
-        await authService.logout()
+        // await authService.logout()
 
         navigate("/verify-success", { replace: true })
 
