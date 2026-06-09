@@ -22,6 +22,8 @@ function Login() {
       if (session) {
 
         const userData = await authService.getCurrentUser()
+
+        console.log(userData)
             console.log("userData", userData)
             console.log("userverification", userData.emailVerification)
 

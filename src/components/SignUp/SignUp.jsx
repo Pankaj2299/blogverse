@@ -27,7 +27,7 @@ function SignUp() {
     try {
 
       const account = await authService.CreateAccount(data)
-
+         console.log(account)
 
       if (account) {
 
