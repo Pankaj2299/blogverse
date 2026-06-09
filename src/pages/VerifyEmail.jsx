@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import authService from "../appwrite/auth";
 
 function VerifyEmail() {
-
+  
+  const hasRef = useRef(false)
 console.log("VERIFY PAGE MOUNTED");
   const navigate = useNavigate()
   const [searchParams] = useSearchParams();
@@ -13,6 +14,9 @@ console.log("VERIFY PAGE MOUNTED");
   useEffect(() => {
 
     const verify = async () => {
+
+      if(hasRef.current) return
+      hasRef.current =true
 
       const userId = searchParams.get("userId");
       const secret = searchParams.get("secret");
@@ -26,10 +30,10 @@ console.log("VERIFY PAGE MOUNTED");
 
       
 
-      const result = await authService.verifyEmail({
+      const result = await authService.verifyEmail(
         userId,
         secret
-      });
+      );
 
        console.log("VERIFY SUCCESS", result)
       

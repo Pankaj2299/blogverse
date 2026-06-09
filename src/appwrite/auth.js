@@ -35,7 +35,7 @@ export class AuthService {
     }
 
 
-    async verifyEmail({ userId, secret }) {
+    async verifyEmail( userId, secret ) {
         try {
 
               console.log("VERIFYING", userId, secret);
