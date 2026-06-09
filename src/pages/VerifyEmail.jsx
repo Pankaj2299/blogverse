@@ -23,12 +23,16 @@ function VerifyEmail() {
         return;
       }
 
+
+   console.log("userId", userId)
+console.log("secret", secret)
+
       const result = await authService.verifyEmail({
         userId,
         secret
       });
 
-
+       console.log("VERIFY RESULT", result)
 
       if (result) {
 
