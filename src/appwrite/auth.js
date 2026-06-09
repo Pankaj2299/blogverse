@@ -40,10 +40,10 @@ export class AuthService {
 
               console.log("VERIFYING", userId, secret);
 
-            const result =  await this.Account.updateVerification({
+            const result =  await this.Account.updateVerification(
                 userId,
                 secret
-            })
+            )
 
               console.log("VERIFY SUCCESS", result);
 
@@ -52,7 +52,7 @@ export class AuthService {
         } catch (error) {
 
             console.log("VERIFY ERROR", error);
-            
+
             return false
 
 

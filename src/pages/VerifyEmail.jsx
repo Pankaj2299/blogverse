@@ -4,7 +4,7 @@ import authService from "../appwrite/auth";
 
 function VerifyEmail() {
 
-
+console.log("VERIFY PAGE MOUNTED");
   const navigate = useNavigate()
   const [searchParams] = useSearchParams();
 
