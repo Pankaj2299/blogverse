@@ -36,7 +36,8 @@ function SignUp() {
           password: data.password
         })
 
-        // const result = await authService.sendVerification()
+        const result = await authService.sendVerification()
+        console.log("Verification Response:", result)
         await authService.logout()
         navigate("/check-email")
 
