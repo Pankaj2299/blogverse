@@ -42,7 +42,10 @@ console.log("VERIFY PAGE MOUNTED");
 
         // await authService.logout()
 
-        navigate("/verify-success", { replace: true })
+          console.log("BEFORE NAVIGATE");
+            window.location.replace("/verify-success");
+
+        // navigate("/verify-success", { replace: true })
 
         return
 
