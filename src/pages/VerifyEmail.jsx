@@ -11,56 +11,46 @@ console.log("VERIFY PAGE MOUNTED");
 
   const [status, setStatus] = useState("loading");
 
-  useEffect(() => {
+ useEffect(() => {
+  const verify = async () => {
+    if (hasRef.current) return;
+    hasRef.current = true;
 
-    const verify = async () => {
+        console.log("FULL URL:", window.location.href);
 
-      if(hasRef.current) return
-      hasRef.current =true
-
+    try {
       const userId = searchParams.get("userId");
       const secret = searchParams.get("secret");
 
-      if (!userId || !secret) {
+      console.log("userId =", userId);
+      console.log("secret =", secret);
 
+      if (!userId || !secret) {
         setStatus("invalid");
         return;
       }
-
-
-      
 
       const result = await authService.verifyEmail(
         userId,
         secret
       );
 
-       console.log("VERIFY SUCCESS", result)
-      
+      console.log("VERIFY SUCCESS", result);
 
       if (result) {
-
-        // await authService.logout()
-
-          console.log("BEFORE NAVIGATE");
-            window.location.replace("/verify-success");
-
-        // navigate("/verify-success", { replace: true })
-
-        return
-
+        navigate("/verify-success", { replace: true });
+        return;
       }
 
+      setStatus("error");
+    } catch (error) {
+      console.error("Verification Error:", error);
+      setStatus("error");
+    }
+  };
 
-      else {
-        setStatus("error");
-      }
-
-    };
-
-    verify();
-
-  }, []);
+  verify();
+}, []);
 
 
 

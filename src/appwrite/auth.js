@@ -18,7 +18,7 @@ export class AuthService {
     async sendVerification() {
         try {
 
-            const res = await this.Account.createVerification({
+            const res = await this.Account.createEmailVerification({
                 url: `${window.location.origin}/verify-email`
             })
             
@@ -40,10 +40,10 @@ export class AuthService {
 
               console.log("VERIFYING", userId, secret);
 
-            const result =  await this.Account.updateVerification(
+            const result =  await this.Account.updateEmailVerification({ 
                 userId,
                 secret
-            )
+        })
 
               console.log("VERIFY SUCCESS", result);
 
