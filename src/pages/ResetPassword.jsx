@@ -19,6 +19,13 @@ function ResetPassword() {
       const userId = searchParams.get("userId");
       const secret = searchParams.get("secret");
 
+
+         if (!userId || !secret) {
+      setMessage("❌ Invalid password reset link.");
+      return;
+    }
+
+
       await authService.resetPassword({
         userId,
         secret,
