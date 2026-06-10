@@ -27,7 +27,7 @@ function SignUp() {
     try {
 
       const account = await authService.CreateAccount(data)
-         console.log(account)
+         console.log("AFTER CREATE",account)
 
       if (account) {
 
@@ -36,8 +36,17 @@ function SignUp() {
           password: data.password
         })
 
+        const user = await authService.getCurrentUser()
+        console.log("AFTER LOGIN",user)
+
         const result = await authService.sendVerification()
-        console.log("Verification Response:", result)
+
+        console.log("AFTER SEND VERIFICATION", result)
+  
+        const user2 = await authService.getCurrentUser()
+
+        console.log("AFTER SEND USER", user2)
+
         await authService.logout()
         navigate("/check-email")
 
