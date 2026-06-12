@@ -1,5 +1,5 @@
-import React, { useEffect, useState,useRef } from "react";
-import { useSearchParams, Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import authService from "../appwrite/auth";
 
 
@@ -11,18 +11,13 @@ function VerifyEmail() {
   const [status, setStatus] = useState("waiting");
 
   const handleVerify = async () => {
+    
     try {
-      setStatus("loading");
 
-      console.log("VERIFY PAGE OPENED");
-      console.log("TIME:", new Date().toISOString());
-      console.log("URL:", window.location.href);
+      setStatus("loading")
 
       const userId = searchParams.get("userId");
       const secret = searchParams.get("secret");
-
-      console.log("userId =", userId);
-      console.log("secret =", secret);
 
       if (!userId || !secret) {
         setStatus("invalid");
@@ -34,8 +29,6 @@ function VerifyEmail() {
         secret
       );
 
-      console.log("VERIFY SUCCESS", result);
-
       if (result) {
         navigate("/verify-success", { replace: true });
         return;
@@ -43,7 +36,7 @@ function VerifyEmail() {
 
       setStatus("error");
     } catch (error) {
-      console.error("Verification Error:", error);
+
       setStatus("error");
     }
   };
@@ -55,24 +48,34 @@ function VerifyEmail() {
         {status === "waiting" && (
           <>
             <h1 className="text-3xl font-bold mb-4">
-              Verify Your Email
+              Confirm Your Email
             </h1>
 
             <p className="text-slate-600 mb-6">
-              Click the button below to complete verification.
+              Your verification link has been received.
+              Click below to complete the verification process
+              and continue using your account.
             </p>
 
             <button
               onClick={handleVerify}
-              className="px-6 py-3 rounded-lg bg-blue-600 text-white"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl transition"
             >
-              Verify Email
+              Complete Verification
             </button>
           </>
         )}
 
         {status === "loading" && (
-          <p>Verifying your email...</p>
+          <div className="text-center">
+            <p className="text-lg font-medium">
+              Verifying your account...
+            </p>
+
+            <p className="text-sm text-slate-500 mt-2">
+              Please wait a moment.
+            </p>
+          </div>
         )}
 
         {status === "invalid" && (
@@ -84,6 +87,14 @@ function VerifyEmail() {
             <p className="text-slate-600">
               Verification link is missing required data.
             </p>
+
+            <button
+              onClick={() => navigate("/login")}
+              className="mt-4 px-5 py-2 bg-blue-600 text-white rounded-xl"
+            >
+              Back to Login
+            </button>
+
           </>
         )}
 
@@ -96,6 +107,13 @@ function VerifyEmail() {
             <p className="text-slate-600">
               The verification link is invalid or expired.
             </p>
+
+            <button
+              onClick={() => navigate("/login")}
+              className="mt-4 px-5 py-2 bg-blue-600 text-white rounded-xl"
+            >
+              Back to Login
+            </button>
           </>
         )}
       </div>

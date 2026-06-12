@@ -10,10 +10,13 @@ A modern full-stack blogging platform featuring secure authentication, email ver
 * User Login
 * Logout
 * Email Verification
-* Resend Verification Email
 * Forgot Password
 * Reset Password
 * Password Visibility Toggle
+* Email Verification Protection
+* Verification Email Resend Flow
+* Secure Password Recovery
+* Protected Login for Verified Users
 
 ### Blog Management
 
@@ -59,6 +62,10 @@ A modern full-stack blogging platform featuring secure authentication, email ver
 * Appwrite Authentication
 * Appwrite Database
 * Appwrite Storage
+
+### Deployment
+
+* Vercel
 
 ---
 
@@ -177,7 +184,7 @@ npm run build
 
 ## 🌐 Live Demo
 
-   Live Application: https://blogverse-rho.vercel.app/
+   [Visit BlogVerse](https://blogverse-rho.vercel.app/)
 
 ## 📱 Responsive Design
 

@@ -7,8 +7,6 @@ export class AuthService {
 
     constructor() {
 
-        
-
         this.Client
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId)
@@ -21,12 +19,11 @@ export class AuthService {
             const res = await this.Account.createEmailVerification({
                 url: `${window.location.origin}/verify-email`
             })
-            
-            console.log("verification response",res)
+
             return res
 
-        } catch (error) {
 
+        } catch (error) {
 
             throw error
 
@@ -35,23 +32,18 @@ export class AuthService {
     }
 
 
-    async verifyEmail( userId, secret ) {
+    async verifyEmail(userId, secret) {
+
         try {
 
-              console.log("VERIFYING", userId, secret);
-
-            const result =  await this.Account.updateEmailVerification({ 
+            const result = await this.Account.updateEmailVerification({
                 userId,
                 secret
-        })
+            })
 
-              console.log("VERIFY SUCCESS", result);
-
-              return result
+            return result
 
         } catch (error) {
-
-            console.log("VERIFY ERROR", error);
 
             return false
 

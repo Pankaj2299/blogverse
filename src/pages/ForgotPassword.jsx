@@ -10,6 +10,11 @@ function ForgotPassword() {
 
   const sendRecovery = async () => {
 
+    if (!email.trim()) {
+  setError("Please enter your email address.");
+  return;
+    }
+
     setError("");
     setMessage("");
 
@@ -23,7 +28,7 @@ function ForgotPassword() {
 
     } catch (error) {
 
-      setError(error.message);
+      setError( "Unable to send password reset email. Please try again.");
 
     }
   };
@@ -32,41 +37,67 @@ function ForgotPassword() {
 
     <div className="min-h-[80vh] flex items-center justify-center px-4">
 
-      <div className="bg-white rounded-3xl shadow-xl p-8 max-w-md w-full">
+  <div className="bg-white rounded-3xl shadow-xl p-8 max-w-md w-full">
 
-        <h1 className="text-3xl font-bold text-center mb-6">
-          Forgot Password
-        </h1>
+    <div className="text-center mb-6">
 
-        <Input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <Button
-          onClick={sendRecovery}
-          className="w-full mt-4 text-white"
-        >
-          Send Reset Link
-        </Button>
-
-        {message && (
-          <p className="text-green-600 mt-4 text-center">
-            {message}
-          </p>
-        )}
-
-        {error && (
-          <p className="text-red-600 mt-4 text-center">
-            {error}
-          </p>
-        )}
-
+      <div className="text-5xl mb-3">
+        🔑
       </div>
 
+      <h1 className="text-3xl font-bold mb-3">
+        Forgot Your Password?
+      </h1>
+
+      <p className="text-slate-600">
+        Enter your email address and we'll send you
+        a secure password reset link.
+      </p>
+
     </div>
+
+    <Input
+      type="email"
+      placeholder="Enter your email address"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+    />
+
+    <Button
+      onClick={sendRecovery}
+      className="w-full mt-4 text-white"
+    >
+      Send Reset Link
+    </Button>
+
+    {message && (
+      <div className="mt-5 text-center">
+
+        <p className="text-green-600 font-medium">
+          📩 Password reset email sent.
+        </p>
+
+        <p className="text-slate-500 text-sm mt-2">
+          Please check your inbox and follow the
+          instructions to reset your password.
+        </p>
+
+      </div>
+    )}
+
+    {error && (
+      <div className="mt-5 text-center">
+
+        <p className="text-red-600 font-medium">
+          {error}
+        </p>
+
+      </div>
+    )}
+
+  </div>
+
+</div>
   );
 }
 

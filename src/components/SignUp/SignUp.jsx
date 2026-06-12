@@ -27,7 +27,6 @@ function SignUp() {
     try {
 
       const account = await authService.CreateAccount(data)
-         console.log("AFTER CREATE",account)
 
       if (account) {
 
@@ -36,31 +35,27 @@ function SignUp() {
           password: data.password
         })
 
-        const user = await authService.getCurrentUser()
-        console.log("AFTER LOGIN",user)
+         await authService.sendVerification()
 
-        const result = await authService.sendVerification()
+         await authService.logout()
 
-        console.log("AFTER SEND VERIFICATION", result)
-  
-        const user2 = await authService.getCurrentUser()
-
-        console.log("AFTER SEND USER", user2)
-
-        await authService.logout()
-        navigate("/check-email")
-
-      }
-
-
-
-
+         navigate("/check-email")
+ 
+       }
 
     }
 
     catch (error) {
+      if (error.code === 409) {
+        setError(
+          "An account with this email already exists."
+        );
+      } else {
+        setError(
+          "Unable to create account. Please try again."
+        );
+      }
 
-      setError(error.message)
     }
 
   }
@@ -78,7 +73,14 @@ function SignUp() {
 
         </div>
 
-        <h2 className='text-center text-3xl font-bold leading-tight mb-4'>Sign up to create account</h2>
+
+        <h2 className='text-center text-3xl font-bold leading-tight mb-3'>
+          Create Your Account
+        </h2>
+
+        <p className='text-center text-slate-500 mb-4'>
+          Join us and get started in just a few seconds.
+        </p>
 
         <p className='text-center mt-2 text-slate-500'>
           Already have an account?&nbsp;
@@ -92,6 +94,7 @@ function SignUp() {
         </p>
 
         {error &&
+        
           <p className='text-red-600 mt-8 text-center'>{error}</p>
         }
 
@@ -111,6 +114,7 @@ function SignUp() {
               })}
             />
             {errors.name &&
+
               <p className='text-red-500'>{errors.name.message}</p>
             }
             <Input
@@ -128,6 +132,7 @@ function SignUp() {
             />
 
             {errors.email &&
+
               <p className='text-red-500'>{errors.email.message}</p>
             }
 
@@ -143,7 +148,30 @@ function SignUp() {
                 }
               })}
             />
+
+            <p className="text-sm text-slate-500 mt-3">
+              🔒 Use a strong password to help keep your account secure.
+            </p>
+
+            <div className="text-sm text-slate-500">
+
+              <p className="font-medium mb-2">
+                Password Requirements
+              </p>
+
+              <ul className="space-y-1">
+                <li>✓ At least 8 characters</li>
+                <li>✓ One uppercase letter</li>
+                <li>✓ One lowercase letter</li>
+                <li>✓ One number</li>
+                <li>✓ One special character</li>
+              </ul>
+
+            </div>
+
+
             {errors.password &&
+
               <p className='text-red-500'>{errors.password.message}</p>
             }
 

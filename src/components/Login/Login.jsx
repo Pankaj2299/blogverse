@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import authService from '../../appwrite/auth'
 import { useForm } from 'react-hook-form'
 
-console.log("Login Build  Test 123")
+
 
 function Login() {
   const navigate = useNavigate()
@@ -23,15 +23,9 @@ function Login() {
 
         const userData = await authService.getCurrentUser()
 
-        console.log(userData)
-            console.log("userData", userData)
-            console.log("userverification", userData.emailVerification)
-
         if (!userData.emailVerification) {
+
           await authService.logout()
-
-
-
           navigate("/verify-pending", {
             state: {
               email: data.email
@@ -49,16 +43,16 @@ function Login() {
           }
         }))
 
-
-
       }
-
-
 
     } catch (error) {
 
 
-      setError(error.message)
+      if (error.code === 401) {
+        setError("Invalid email or password.");
+      } else {
+        setError("Unable to sign in. Please try again.");
+      }
 
     }
 
@@ -129,7 +123,7 @@ function Login() {
             {...register("email", {
               required: true,
               validate: {
-                matchPatern: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/.test(value) ||
+                matchPattern: (value) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}$/.test(value) ||
                   "Email address must be a valid address"
               }
             })}
