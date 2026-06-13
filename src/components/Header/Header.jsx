@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Logo, LogoutBtn, Container } from '../index'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate,useLocation } from 'react-router-dom'
 import { useSelector } from "react-redux"
 import { getAvatarColor } from '../../utils/AvatarColor'
 
@@ -13,6 +13,7 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false)
   const menuRef = useRef(null)
   const avatarColor = getAvatarColor(userData?.$id)
+  const location = useLocation()
 
 
   const navItem = [
@@ -87,7 +88,11 @@ function Header() {
                   <button
                     onClick={() => navigate(item.slug)}
 
-                    className='px-4 sm:px-5 py-2 text-sm sm:text-base rounded-xl text-slate-700 font-medium hover:bg-slate-100 hover:text-blue-600 transition-all duration-200'>
+                    className={`px-4 sm:px-5 py-2 text-sm sm:text-base rounded-xl   transition-all duration-200 ${
+                      location.pathname ===item.slug
+                      ? "text-blue-600 font-semibold"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-blue-600"
+                    }`}>
 
                     {item.name}
                   </button>
@@ -146,7 +151,13 @@ function Header() {
                             navigate(item.slug)
                             setShowMenu(false)
                           }}
-                          className='w-full text-left px-4 py-3 text-sm text-slate-700 font-medium hover:bg-slate-100 hover:text-blue-600 transition-all duration-200'
+                          className={`w-full text-left px-4 py-3 text-sm font-medium transition-all duration-200
+                            ${
+
+                             location.pathname === item.slug
+                             ? " text-blue-600 font-semibold"
+                             : "text-slate-700 hover:bg-slate-100 hover:text-blue-600"
+                             }`}
 
                         >
                           {item.name}

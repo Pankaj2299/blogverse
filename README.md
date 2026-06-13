@@ -27,12 +27,14 @@ A modern full-stack blogging platform featuring secure authentication, email ver
 * View All Posts
 * Featured Image Upload
 * Automatic Image Deletion
+* Rich Text Editor (TinyMCE)
 
 ### User Experience
 
 * Responsive Design
 * Mobile-Friendly Navigation
 * Avatar Dropdown Menu
+* Dynamic User Avatars
 * Protected Routes
 * Loading States
 * Form Validation
@@ -121,6 +123,9 @@ src
 │
 ├── store
 │   └── store.js
+│   
+├── utils
+│   └── AvatarColor.jsx
 │
 ├── App.jsx
 ├── main.jsx
