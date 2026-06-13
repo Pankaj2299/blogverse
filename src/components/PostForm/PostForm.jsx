@@ -199,7 +199,8 @@ function PostForm({ post }) {
 
                         {
                             post ? (isSubmitting ? "Updating..." : "Update")
-                                : (isSubmitting ? "Submitting..." : "Submit")
+                                : (isSubmitting ? "Uploading and Publishing..."
+ : "Publish Post")
                         }
 
                     </Button>

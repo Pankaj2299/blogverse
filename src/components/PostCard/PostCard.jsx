@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import bucketServices from "../../appwrite/bucketService"
+import { getAvatarColor } from '../../utils/AvatarColor'
 
-function PostCard({ $id, title, featuredImage, authorName, $createdAt }) {
+function PostCard({ $id, title, featuredImage, authorName, $createdAt,userId }) {
 
+  const avatarColor = getAvatarColor(userId)
 
   return (
 
@@ -37,7 +39,7 @@ function PostCard({ $id, title, featuredImage, authorName, $createdAt }) {
           {/* AuthorName + Date + Avatar  */}
           <div className='flex gap-3 mt-3 items-center'>
 
-            <div className='w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white flex items-center justify-center text-xs font-bold'>
+            <div className={`w-8 h-8 rounded-full bg-gradient-to-r ${avatarColor} text-white flex items-center justify-center text-xs font-bold`}>
 
               {authorName?.
                 split(" ")

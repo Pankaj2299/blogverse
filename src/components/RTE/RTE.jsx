@@ -36,6 +36,7 @@ function RTE({ name, control, label, defaultValue = "" }) {
                 initialValue: defaultValue,
                 height: 500,
                 menubar: true,
+              
                 plugins: ["image", "advlist", "autolink", "lists", "link", "charmap", "preview", "anchor", "searchreplace", "visualblocks", "code", "fullscreen", "insertdatetime", "media", "table", "help", "wordcount"],
 
                 toolbar: "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image media table |removeformat | code fullscreen help",

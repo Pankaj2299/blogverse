@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Logo, LogoutBtn, Container } from '../index'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from "react-redux"
+import { getAvatarColor } from '../../utils/AvatarColor'
 
 
 function Header() {
@@ -11,6 +12,8 @@ function Header() {
   const navigate = useNavigate()
   const [showMenu, setShowMenu] = useState(false)
   const menuRef = useRef(null)
+  const avatarColor = getAvatarColor(userData?.$id)
+
 
   const navItem = [
     {
@@ -100,7 +103,7 @@ function Header() {
 
 
 
-                <div className='w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md flex items-center justify-center text-sm font-bold'>
+                <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${avatarColor} text-white shadow-md flex items-center justify-center text-sm font-bold`}>
 
                   {userData?.name?.split(" ").map((word) => word.charAt(0)).join("").toUpperCase()}
 
@@ -122,7 +125,7 @@ function Header() {
 
               <button
                 onClick={() => setShowMenu(prev => !prev)}
-                className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md flex items-center justify-center text-sm font-bold"
+                className={`w-10 h-10 rounded-full bg-gradient-to-r ${avatarColor} text-white shadow-md flex items-center justify-center text-sm font-bold`}
               >
                 {userData?.name
                   ?.split(" ")
