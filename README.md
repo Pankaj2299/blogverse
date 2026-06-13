@@ -74,62 +74,77 @@ A modern full-stack blogging platform featuring secure authentication, email ver
 ## 📂 Project Structure
 
 ```bash
-src
-├── appwrite
-│   ├── auth.js
-│   ├── bucketService.js
-│   └── dbService.js
+
+blogverse
 │
-├── components
-│   ├── AuthLayout
-│   ├── Button
-│   ├── Container
-│   ├── Footer
-│   ├── Header
-│   ├── Input
-│   ├── Login
-│   ├── Logo
-│   ├── LogoutBtn
-│   ├── PostCard
-│   ├── PostForm
-│   ├── RTE (TinyMCE Editor)
-│   ├── ScrollToTop
-│   ├── Select
-│   ├── SignUp
-│   └── index.js
+├── screenshots
+│   ├── home.png
+│   ├── login.png
+│   ├── signup.png
+│   ├── all-posts.png
+│   ├── create-post.png
+│   └── single-post.png
 │
-├── conf
-│   └── conf.js
+├── src
+│   │
+│   ├── appwrite
+│   │   ├── auth.js
+│   │   ├── bucketService.js
+│   │   └── dbService.js
+│   │
+│   ├── components
+│   │   ├── AuthLayout
+│   │   ├── Button
+│   │   ├── Container
+│   │   ├── Footer
+│   │   ├── Header
+│   │   ├── Input
+│   │   ├── Login
+│   │   ├── Logo
+│   │   ├── LogoutBtn
+│   │   ├── PostCard
+│   │   ├── PostForm
+│   │   ├── RTE (TinyMCE Editor)
+│   │   ├── ScrollToTop
+│   │   ├── Select
+│   │   ├── SignUp
+│   │   └── index.js
+│   │
+│   ├── conf
+│   │   └── conf.js
+│   │
+│   ├── features
+│   │   └── authSlice.js
+│   │
+│   ├── pages
+│   │   ├── AddPost.jsx
+│   │   ├── AllPost.jsx
+│   │   ├── CheckEmail.jsx
+│   │   ├── EditPost.jsx
+│   │   ├── ForgotPassword.jsx
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Post.jsx
+│   │   ├── ResetPassword.jsx
+│   │   ├── SignUp.jsx
+│   │   ├── VerifyEmail.jsx
+│   │   ├── VerifyPending.jsx
+│   │   ├── VerifySuccess.jsx
+│   │   └── index.js
+│   │
+│   ├── store
+│   │   └── store.js
+│   │
+│   ├── utils
+│   │   └── AvatarColor.jsx
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
 │
-├── features
-│   └── authSlice.js
-│
-├── pages
-│   ├── AddPost.jsx
-│   ├── AllPost.jsx
-│   ├── CheckEmail.jsx
-│   ├── EditPost.jsx
-│   ├── ForgotPassword.jsx
-│   ├── Home.jsx
-│   ├── Login.jsx
-│   ├── Post.jsx
-│   ├── ResetPassword.jsx
-│   ├── SignUp.jsx
-│   ├── VerifyEmail.jsx
-│   ├── VerifyPending.jsx
-│   ├── VerifySuccess.jsx
-│   └── index.js
-│   
-│
-├── store
-│   └── store.js
-│   
-├── utils
-│   └── AvatarColor.jsx
-│
-├── App.jsx
-├── main.jsx
-└── index.css
+├── README.md
+├── package.json
+└── vite.config.js
 ```
 
 ---
@@ -190,6 +205,36 @@ npm run build
 ## 🌐 Live Demo
 
    [Visit BlogVerse](https://blogverse-rho.vercel.app/)
+
+   ---
+
+   ## 📸 Screenshots
+
+### Home Page
+
+![Home Page](./screenshots/home.png)
+
+### Login Page
+
+![Login Page](./screenshots/login.png)
+
+### Signup Page
+
+![Signup Page](./screenshots/signup.png)
+
+### All Posts
+
+![All Posts](./screenshots/all-post.png)
+
+### Create Post
+
+![Create Post](./screenshots/create-post.png)
+
+### Single Post
+
+![Single Post](./screenshots/single-post.png)
+
+ ---
 
 ## 📱 Responsive Design
 
